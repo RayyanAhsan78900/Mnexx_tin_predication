@@ -27,12 +27,12 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the current directory contents into the container at /app
 COPY . .
 
-# Expose the port Streamlit will run on (default is 8501)
-EXPOSE 8501
+# Expose the port the app will run on
+EXPOSE 5000
 
 # Define environment variable to prevent Python from writing .pyc files
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-# Run the Streamlit app
-CMD ["streamlit", "run", "tin.py", "--server.port=8501", "--server.address=0.0.0.0"]
+# Run the Flask app
+CMD ["python", "app.py"]
